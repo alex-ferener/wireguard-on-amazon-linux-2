@@ -63,7 +63,7 @@ Endpoint = ${EC2_PUBLIC_IP}:4343
 ```
 
 Use:
-- `wg-quick up wg0` for connecting
+- `wg-quick up wg0` to connect
 - `wg-quick down wg0` to disconnect
 
 At this point all traffic should be routed through EC2
