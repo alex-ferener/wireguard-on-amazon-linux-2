@@ -62,4 +62,4 @@ Use:
 - `wg-quick up wg0` for connecting
 - `wg-quick down wg0` to disconnect
 
-At this point all the traffic should be routed through EC2
+At this point all traffic should be routed through EC2
