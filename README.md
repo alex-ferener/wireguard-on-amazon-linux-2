@@ -1,5 +1,7 @@
 # WireGuard on Amazon Linux 2 / VPN Gateway
 
+Use `wg genkey | tee privatekey | wg pubkey > publickey` to generate the keys.
+
 ## Server Side
 
 You can put in EC2 user data
