@@ -4,7 +4,7 @@ Use `wg genkey | tee privatekey | wg pubkey > publickey` to generate the keys.
 
 ## Server Side
 
-You can put in EC2 user data
+You can set in EC2 user data
 
 ```bash
 #!/bin/bash
