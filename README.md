@@ -2,7 +2,11 @@
 
 ## Server Side
 
+You can put in EC2 user data
+
 ```bash
+#!/bin/bash
+
 curl -L -o /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 
 yum install -y wireguard-dkms wireguard-tools
@@ -40,18 +44,20 @@ wg-quick up wg0
 echo "
 [Interface]
 Address = 172.30.30.2/32
-DNS = 10.10.0.2
+DNS = ${VPC_RESOLVER_IP}
 PrivateKey = 0PRbe7sseN3Y6cDiNmzR07b/eYV5ZnppfkLhmfcYRH0=
 SaveConfig = true
 
 [Peer]
 PublicKey = U7sMaPKGIb+lkkSHiQbO3AcsCamXeWWKWOpLequfkh8=
 AllowedIPs = 0.0.0.0/0
-Endpoint = 18.185.178.66:4343
+Endpoint = ${EC2_PUBLIC_IP}:4343
 
 " > /etc/wireguard/wg0.conf
-
-wg-quick up wg0
 ```
+
+Use:
+- `wg-quick up wg0` for connecting
+- `wg-quick down wg0` to disconnect
 
 At this point all the traffic should be routed through EC2
