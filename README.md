@@ -1,4 +1,4 @@
-# Wireguard on Amazon Linux 2 / VPN Gateway
+# WireGuard on Amazon Linux 2 / VPN Gateway
 
 ## Server Side
 
