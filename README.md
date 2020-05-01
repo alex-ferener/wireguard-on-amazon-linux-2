@@ -1,6 +1,8 @@
 # WireGuard on Amazon Linux 2 / VPN Gateway
 
-Use `wg genkey | tee privatekey | wg pubkey > publickey` to generate the keys.
+Use:
+- `wg genkey | tee privatekey | wg pubkey > publickey` to generate: `PublicKey` and `PrivateKey`.
+- `wg genpsk > wgpsk.key` to generate `PresharedKey`
 
 ## Server Side
 
@@ -29,6 +31,7 @@ PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
 PublicKey = P5otm+/TX6Zs0DAJnWyG89gVzWAf/ESglEMMn3uhbg8=
+PresharedKey = VWFnSjNLp0a2ol4iPSFcl3lrGpGbyoPQJS7mJQKwlJk=
 AllowedIPs = 172.30.30.2/32
 
 " > /etc/wireguard/wg0.conf
@@ -52,6 +55,7 @@ SaveConfig = true
 
 [Peer]
 PublicKey = U7sMaPKGIb+lkkSHiQbO3AcsCamXeWWKWOpLequfkh8=
+PresharedKey = VWFnSjNLp0a2ol4iPSFcl3lrGpGbyoPQJS7mJQKwlJk=
 AllowedIPs = 0.0.0.0/0
 Endpoint = ${EC2_PUBLIC_IP}:4343
 
