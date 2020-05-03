@@ -43,7 +43,7 @@ wg-quick up wg0
 
 1. Install WireGuard: https://www.wireguard.com/install/
 
-2. Configure client configuration
+2. Configure client configuration and replace `VPC_RESOLVER_IP` &amp; `EC2_PUBLIC_IP` with actual values. 
 
 ```bash
 mkdir /etc/wireguard/
