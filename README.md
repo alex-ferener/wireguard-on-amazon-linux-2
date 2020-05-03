@@ -46,6 +46,7 @@ wg-quick up wg0
 2. Configure client configuration
 
 ```bash
+mkdir /etc/wireguard/
 echo "
 [Interface]
 Address = 172.30.30.2/32
@@ -66,4 +67,5 @@ Use:
 - `wg-quick up wg0` to connect
 - `wg-quick down wg0` to disconnect
 
-At this point all traffic should be routed through EC2
+At this point all traffic should be routed through EC2. If you want to split the traffic, replace 0.0.0.0/0 
+with specific CIDRs (eg: 172.30.0.0/16) and only that range will be tunneled.
