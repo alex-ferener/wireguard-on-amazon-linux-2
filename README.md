@@ -24,14 +24,14 @@ echo "
 [Interface]
 Address = 172.30.30.1/32
 ListenPort = 4343
-PrivateKey = sCK+ns1GH0CxBnKgO5v14o+u51xfIrkiCTeT828dJVI=
+PrivateKey = REPLACE_WITH_SERVER_PRIVATE_KEY
 SaveConfig = true
 PostUp = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
-PublicKey = P5otm+/TX6Zs0DAJnWyG89gVzWAf/ESglEMMn3uhbg8=
-PresharedKey = VWFnSjNLp0a2ol4iPSFcl3lrGpGbyoPQJS7mJQKwlJk=
+PublicKey = REPLACE_WITH_CLIENT_PUBLIC_KEY
+PresharedKey = REPLACE_WITH_PRE_SHARED_KEY
 AllowedIPs = 172.30.30.2/32
 
 " > /etc/wireguard/wg0.conf
@@ -51,12 +51,12 @@ echo "
 [Interface]
 Address = 172.30.30.2/32
 DNS = ${VPC_RESOLVER_IP}
-PrivateKey = 0PRbe7sseN3Y6cDiNmzR07b/eYV5ZnppfkLhmfcYRH0=
+PrivateKey = REPLACE_WITH_CLIENT_PRIVATE_KEY
 SaveConfig = true
 
 [Peer]
-PublicKey = U7sMaPKGIb+lkkSHiQbO3AcsCamXeWWKWOpLequfkh8=
-PresharedKey = VWFnSjNLp0a2ol4iPSFcl3lrGpGbyoPQJS7mJQKwlJk=
+PublicKey = REPLACE_WITH_SERVER_PUBLIC_KEY
+PresharedKey = REPLACE_WITH_PRE_SHARED_KEY
 AllowedIPs = 0.0.0.0/0
 Endpoint = ${EC2_PUBLIC_IP}:4343
 
