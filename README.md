@@ -41,7 +41,7 @@ AllowedIPs = 172.30.30.2/32
 
 " > /etc/wireguard/wg0.conf
 
-wg-quick up wg0
+reboot
 ```
 
 ## Client Side
