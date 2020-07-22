@@ -11,6 +11,7 @@ You can set in EC2 user data
 ```bash
 #!/bin/bash
 
+yum upgrade -y
 amazon-linux-extras install -y epel
 
 curl -Lo /etc/yum.repos.d/wireguard.repo \
