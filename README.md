@@ -10,8 +10,12 @@ You can set in EC2 user data
 
 ```bash
 #!/bin/bash
-curl -L -o /etc/yum.repos.d/wireguard.repo \
+
+amazon-linux-extras install -y epel
+
+curl -Lo /etc/yum.repos.d/wireguard.repo \
   https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
+yum clean all
 
 yum install -y wireguard-dkms wireguard-tools
 systemctl enable wg-quick@wg0.service
