@@ -23,7 +23,7 @@ systemctl enable wg-quick@wg0.service
 
 sysctl net.ipv4.conf.all.forwarding=1 | tee -a /etc/sysctl.d/forwarding.conf
 
-mkdir /etc/wireguard/
+mkdir -p /etc/wireguard/
 
 echo "
 [Interface]
